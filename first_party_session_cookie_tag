@@ -1,0 +1,18 @@
+<script>
+(function() {
+  // Function to set a cookie
+  function setCookie(name, value) {
+    var domain = window.location.hostname.split('.').slice(-2).join('.');
+    document.cookie = name + "=" + value + ";path=/;domain=" + domain + ";secure;samesite=strict";
+  }
+
+  // Function to decode and format email
+  function formatEmail(email) {
+    return decodeURIComponent(email).replace(/\+/g, '@');
+  }
+
+  // Set the cookies
+  setCookie('em', formatEmail({{UPD}}.email));
+  setCookie('ph', {{UPD}}.phone);
+})();
+</script>
